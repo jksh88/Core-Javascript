@@ -3,25 +3,13 @@ function nestedEvenSum(obj, sum = 0) {
     if (typeof obj[key] === 'number' && obj[key] % 2 === 0) {
       sum += obj[key];
     }
-    if (
-      typeof obj[key] === 'object' &&
-      !Array.isArray(obj[key]) &&
-      Object.values(obj[key]).some((elem) => elem % 2 === 0)
-    ) {
-      // sum += 100;
-
-      acc = Object.values(obj[key]).reduce(
-        (acc, cur) => acc + nestedEvenSum(cur),
-        0
-      );
-      sum += acc;
+    if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+      sum += nestedEvenSum(obj[key]);
     } else {
       continue;
     }
   }
-
   return sum;
-  // add whatever parameters you deem necessary - good luck!
 }
 
 var obj1 = {
