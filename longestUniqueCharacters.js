@@ -11,7 +11,7 @@ function luc(word, prevCount = 0, k = word.length - 1) {
   }
 
   let curCount = count > prevCount ? count : prevCount;
-  if (k <= 0) {
+  if (k < 0) {
     return word.slice(-1 * curCount, -1);
   }
   console.log(curCount, k);
