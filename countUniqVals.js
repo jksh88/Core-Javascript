@@ -8,14 +8,5 @@ function countUniqVals(arr) {
   for (let i = 0; i < arr.length; i++) {
     !obj[arr[i]] ? (obj[arr[i]] = 1) : obj[arr[i]]++;
   }
-  let count = 0;
-  console.log(obj);
-  for (let key in obj) {
-    if (obj[key] === 1) {
-      count++;
-    } else {
-      continue;
-    }
-  }
-  return count;
+  return Object.keys(obj).length;
 }
